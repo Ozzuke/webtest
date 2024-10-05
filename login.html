@@ -2,9 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #11cfbc;
+        }
+        h4 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .spacer {
+            margin: 10px 0;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .input-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+        }
+        .input-group input::placeholder {
+            color: #999;
+            opacity: 1;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 10px;
+            background-color: #343a8f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-login:hover {
+            background-color: #45a049;
+        }
+        .Forget-password {
+            text-align: center;
+            margin-top: 10px;
+            color: #11cfbc;
+        }
+        
+    </style>
 </head>
 <body>
 
+    <div class="login-container">
+        <h2>Welcome to PostIt</h2>
+        <h3>Create an account</h3>
+        <h4>or</h4>
+        <div class="spacer"></div> 
+        <h4>Please log in</h4>
+
+        <form action="/login" method="POST">
+            <div class="input-group">
+                <input type="text" id="username" name="username" required placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <button type="submit" class="btn-login">Log in</button>
+        </form>
+        <div class="Forget-password">
+            <p>Forget password</p>
+        </div>
+    </div>
+    
 </body>
 </html>
