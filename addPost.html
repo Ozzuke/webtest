@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Post</title>
+    <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="icon" href="res/images/favicon.ico">
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">addPost</a></li>
+        </ul>
+    </nav>
+    <a href="index.html"><img src="res/images/default-user-icon.svg" alt="User icon"></a>
+</header>
+<div>
+    <form>
+        <div>
+            <label for="post-text">Post body</label>
+            <textarea id="post-text" name="post-text" rows="4" cols="50"></textarea>
+        </div>
 
+        <div>
+            <label for="post-image">Select a file:</label>
+            <input type="file" id="post-image" name="post-image" accept="image/*">
+        </div>
+
+        <div>
+            <button type="submit">Create post</button>
+        </div>
+    </form>
+</div>
+<footer>
+    <p>©2024 Team X</p>
+</footer>
 </body>
 </html>
