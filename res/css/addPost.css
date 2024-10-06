@@ -12,8 +12,7 @@ main{
 }
 
 form{
-    padding: 5em;
-    margin: 2em;
+    padding: 2em;
     background-color: #f0f0f0;
     border-radius: 1em;
 }
@@ -31,10 +30,16 @@ form{
 }
 
 .submit-button{
-    background-color: #30c9c9;
+    background-color: #343a8f;
+    color: white;
     border-style: none;
+    padding: 0.75em;
+    border-radius: 4px;
+    font-size: 1em;
 }
-
+.submit-button:hover{
+    background-color: #45a049;
+}
 .hidden{
     display: none;
 }
@@ -46,6 +51,28 @@ form{
     font-weight: normal;
     background-color: #444444;
     color: #f0f0f0;
-    padding: 0;
+    padding: 0.70em;
     margin: 0;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: #000000;
+    border-radius: 4px;
+}
+
+#image-label-label{
+    padding-right: 0;
+    margin-right: 0;
+}
+
+#post-text-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1em;
+}
+
+#image-label:hover{
+
+    background-color: #555555;
+    color: #f0f0f0;
 }
