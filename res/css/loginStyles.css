@@ -84,14 +84,15 @@ h2 {
     text-align: center;
     margin-bottom: 10px;
 }
+h2::first-letter {
+    color: #0066cc;
+}
 
-h3 {
-    text-align: center;
-    margin-bottom: 10px;
+.highlight {
     color: #11cfbc;
 }
 
-h4 {
+h3 {
     text-align: center;
     margin-bottom: 10px;
 }
@@ -117,6 +118,10 @@ h4 {
 .input-group input::placeholder {
     color: #999;
     opacity: 1;
+}
+input:focus {
+    border-color: #0066cc;
+    outline: none;
 }
 
 .btn-login {
