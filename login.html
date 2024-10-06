@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="res/css/loginStyles.css">
+    <link rel="icon" href="res/images/favicon.ico">
     <title>Login</title>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+        <img src="res/images/default-user-icon.svg" alt="User icon">
+    </header>
+    <div class="login-container">
+        <h2>Welcome to PostIt</h2>
+        <h3>Create an account</h3>
+        <h4>or</h4>
+        <div class="spacer"></div> 
+        <h4>Please log in</h4>
 
+        <form action="index.html" method="POST">
+            <div class="input-group">
+                <input type="text" id="username" name="username" required placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <button type="submit" class="btn-login">Log in</button>
+        </form>
+        <div class="Forget-password">
+            <p>Forget password</p>
+        </div>
+    </div>
+    
 </body>
 </html>
