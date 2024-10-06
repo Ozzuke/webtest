@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 header {
-    background-color: #f0f0f0;
+    background-color: hsl(0, 3%, 64%);
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -16,9 +16,14 @@ header {
     flex-direction: row;
     z-index: 100;
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 0;
-    width: 100%;
+    right: 0;
+    width: 97%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
 }
 
 
