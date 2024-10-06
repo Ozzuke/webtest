@@ -12,17 +12,17 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">addPost</a></li>
+            <li><a href="addPost.html">addPost</a></li>
         </ul>
     </nav>
-    <a href="index.html"><img src="res/images/default-user-icon.svg" alt="User icon"></a>
+    <a href="index.html"><img src="res/images/default-user-icon.svg" alt="User icon" class="user-icon"></a>
 </header>
 <main>
     <div id="addPost-layout">
         <form class="addPost-form">
             <div>
                 <label for="post-text" id="post-text-label">Post body:</label>
-                <textarea id="post-text" name="post-text" rows="6" cols="20">textarea</textarea>
+                <textarea id="post-text" name="post-text" rows="6" cols="20" placeholder="textarea"></textarea>
             </div>
             <div class="file-selector-div">
                 <p id="image-label-label">Select file:</p>
@@ -30,7 +30,7 @@
                 <input type="file" id="post-image" name="post-image" accept="image/*" class="hidden">
             </div>
             <div class="submit-button-div">
-                <button type="submit" class="submit-button">Create post</button>
+                <button type="submit" class="submit-button"><a href="index.html">Create post</a></button>
             </div>
         </form>
     </div>
