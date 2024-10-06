@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Add Post</title>
     <link rel="stylesheet" href="res/css/styles.css">
+    <link rel="stylesheet" href="res/css/addPost.css">
     <link rel="icon" href="res/images/favicon.ico">
 </head>
 <body>
@@ -16,23 +17,24 @@
     </nav>
     <a href="index.html"><img src="res/images/default-user-icon.svg" alt="User icon"></a>
 </header>
-<div>
-    <form>
-        <div>
-            <label for="post-text">Post body</label>
-            <textarea id="post-text" name="post-text" rows="4" cols="50"></textarea>
-        </div>
-
-        <div>
-            <label for="post-image">Select a file:</label>
-            <input type="file" id="post-image" name="post-image" accept="image/*">
-        </div>
-
-        <div>
-            <button type="submit">Create post</button>
-        </div>
-    </form>
-</div>
+<main>
+    <div id="addPost-layout">
+        <form class="addPost-form">
+            <div>
+                <label for="post-text">Post body</label>
+                <textarea id="post-text" name="post-text" rows="4" cols="20"></textarea>
+            </div>
+            <div>
+                <p>Select File</p>
+                <label for="post-image" id="image-label">Choose File</label>
+                <input type="file" id="post-image" name="post-image" accept="image/*" class="hidden">
+            </div>
+            <div class="submit-button-div">
+                <button type="submit" class="submit-button">Create post</button>
+            </div>
+        </form>
+    </div>
+</main>
 <footer>
     <p>©2024 Team X</p>
 </footer>

@@ -1,0 +1,51 @@
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#addPost-layout{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-weight: bold;
+}
+
+form{
+    padding: 5em;
+    margin: 2em;
+    background-color: #f0f0f0;
+    border-radius: 1em;
+}
+
+.addPost-form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1em;
+}
+
+.submit-button-div{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button{
+    background-color: #30c9c9;
+    border-style: none;
+}
+
+.hidden{
+    display: none;
+}
+
+#image-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+    background-color: #444444;
+    color: #f0f0f0;
+    padding: 0;
+    margin: 0;
+}

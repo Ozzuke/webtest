@@ -91,7 +91,7 @@ aside {
 }
 
 main {
-    flex: 1;
+    flex: 1 0 auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -201,6 +201,7 @@ button > img {
 }
 
 footer {
+    flex-shrink: 0;
     background-color: #f0f0f0;
     padding: 10px;
     text-align: center;
