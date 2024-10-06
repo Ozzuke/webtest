@@ -7,6 +7,64 @@ body {
     height: 100vh;
     margin: 0;
 }
+header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    z-index: 100;
+    position: fixed; /* Keeps the header at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it spans the width of the screen */
+}
+
+
+nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 2vw;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 10px;
+}
+
+nav ul li + li {
+    padding-left: 10px;
+    border-left: solid black 2px;
+}
+
+nav ul li a {
+    font-family: monospace;
+    text-decoration: none;
+    color: #222;
+    font-size: 1.6em;
+    padding: 5px;
+}
+
+nav ul li a:hover {
+    color: #444;
+    text-decoration: underline;
+    background-color: #ddd;
+    border-radius: 15%;
+}
+
+nav ul li a:active {
+    color: #30c9c9;
+    text-decoration: underline;
+}
+
+header img {
+    width: 64px;
+    height: 64px;
+    display: inline;
+    margin-right: 2vw;
+}
+
 .login-container {
     background-color: #fff;
     padding: 20px;
