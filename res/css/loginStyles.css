@@ -79,13 +79,17 @@ header img {
     width: 300px;
     max-width: 90%;
 }
+#username, #password {           
+    width: 100%;                
+    padding: 10px;             
+    margin: 10px 0;             
+    border: 1px solid #ccc;     
+    border-radius: 5px;
+}
 
 h2 {
     text-align: center;
     margin-bottom: 10px;
-}
-h2::first-letter {
-    color: #0066cc;
 }
 
 .highlight {
@@ -118,10 +122,6 @@ h3 {
 .input-group input::placeholder {
     color: #999;
     opacity: 1;
-}
-input:focus {
-    border-color: #0066cc;
-    outline: none;
 }
 
 .btn-login {
