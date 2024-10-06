@@ -101,8 +101,12 @@ h3 {
     margin-bottom: 10px;
 }
 
-.spacer {
-    margin: 10px 0;
+h2 + h3 {
+    margin: 10px;
+}
+
+h3 + h3 {
+    margin: 10px;
 }
 
 .input-group {
