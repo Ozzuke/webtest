@@ -7,7 +7,7 @@
       "time": "19:13",
       "userIcon": "res/images/default-user-icon.svg",
       "content": {
-        "text": "Man I had such a fun day today! Isn't life wonderful?",
+        "text": "Man I had such a fun day today! Isn't life wonderful?\n(Was mostly goofing around with Max lol)",
         "images": ["res/images/posts/post1_image1.jpg"]
       },
       "reactions": {
@@ -38,7 +38,7 @@
       "time": "15:01",
       "userIcon": "res/images/default-user-icon.svg",
       "content": {
-        "text": "Found these photos, anyone know where they're from?",
+        "text": "Found these photos, anyone know where they're from? I reallllly wanna go there!!",
         "images": [
           "res/images/posts/post3_image1.jpg",
           "res/images/posts/post3_image2.jpg"
