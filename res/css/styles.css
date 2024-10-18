@@ -123,9 +123,22 @@ article {
     border-radius: 50%;
 }
 
+.post-header img + span {
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 1.1em;
+    font-family: Futura, sans-serif;
+}
+
 .post-header span {
     font-family: monospace;
     font-size: 1.2em;
+}
+
+.post-header time {
+    font-family: monospace;
+    font-size: 0.8em;
+    color: #666;
 }
 
 .post-content {
@@ -155,6 +168,15 @@ article {
     align-items: center;
 }
 
+.reactions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
 .reaction-group {
     display: flex;
     flex-direction: row;
@@ -171,13 +193,14 @@ article {
     margin: 0;
     background-color: transparent;
     border: none;
+    margin-right: 3px;
 }
 
-.post-footer .reaction-group:last-of-type button {
+.reaction-group:last-of-type button {
     margin-right: 4px;
 }
 
-.post-footer .reaction-count {
+.reaction-count {
     color: #444;
     font-size: 1.2em;
 
@@ -198,6 +221,11 @@ button > img {
 
 .post-footer button:active img {
     bottom: 5px;
+}
+
+main > div:last-of-type {
+    color: #666;
+    
 }
 
 footer {
