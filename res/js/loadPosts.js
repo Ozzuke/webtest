@@ -1,17 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // load posts from json file
-    fetch('res/data/posts.json')
-        .then(response => response.json())
+    fetch('https://gist.github.com/Anyro0/8b85110c4018e8be17c169915de66d8f.js')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch JSON data");
+            }
+            return response.json();
+        })
         .then(data => {
             const posts = data.posts;
-
             const postContainer = document.getElementById('posts-container');
-            // add posts in reverse order to show the latest post first
             posts.reverse().forEach(post => {
                 const postElement = createPost(post);
                 postContainer.appendChild(postElement);
             });
-        });
+        })
+        .catch(error => console.error("Error loading posts:", error));
 });
 
 const createPost = (post) => {
