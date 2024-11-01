@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="res/css/styles.css">
     <link rel="stylesheet" href="res/css/loginStyles.css">
     <link rel="icon" href="res/images/favicon.ico">
+    <script src="res/js/dropDown.js"></script>
     <title>Login</title>
 </head>
 <body>
@@ -13,9 +15,19 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
+                <li><a href="addPost.html">addPost</a></li>
             </ul>
         </nav>
-        <img src="res/images/default-user-icon.svg" alt="User icon">
+        <div class="user-icon-container">
+            <img src="res/images/default-user-icon.svg" alt="User icon" id="user-icon">
+            <div id="dropdown-menu" class="dropdown-menu">
+                <div class="user-info">
+                    <p id="user-name">User Name</p>
+                    <p id="user-email">user@example.com</p>
+                </div>
+                <a href="logout.html">Logout</a>
+            </div>
+        </div>
     </header>
     <div class="login-container">
         <h2>Welcome to PostIt</h2>
@@ -35,6 +47,8 @@
             <p>Forget password</p>
         </div>
     </div>
-    
+    <footer>
+        <p>©2024 Team X</p>
+    </footer>
 </body>
 </html>

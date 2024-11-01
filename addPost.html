@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="res/css/styles.css">
     <link rel="stylesheet" href="res/css/addPost.css">
     <link rel="icon" href="res/images/favicon.ico">
+    <script src="res/js/dropDown.js"></script>
 </head>
 <body>
 <header>
@@ -15,7 +16,16 @@
             <li><a href="addPost.html">addPost</a></li>
         </ul>
     </nav>
-    <a href="index.html"><img src="res/images/default-user-icon.svg" alt="User icon" class="user-icon"></a>
+    <div class="user-icon-container">
+        <img src="res/images/default-user-icon.svg" alt="User icon" id="user-icon">
+        <div id="dropdown-menu" class="dropdown-menu">
+            <div class="user-info">
+                <p id="user-name">User Name</p>
+                <p id="user-email">user@example.com</p>
+            </div>
+            <a href="logout.html">Logout</a>
+        </div>
+    </div>
 </header>
 <main>
     <div id="addPost-layout">

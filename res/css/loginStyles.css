@@ -1,83 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
 }
 
-header {
-    background-color: hsl(0, 3%, 64%);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    z-index: 100;
-    position: fixed;
-    top: 10px;
-    left: 0;
-    right: 0;
-    width: 97%;
-    margin: 0 auto;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-nav > ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin-right: 10px;
-}
-
-nav ul li + li {
-    padding-left: 10px;
-    border-left: solid black 2px;
-}
-
-nav ul li a {
-    font-family: monospace;
-    text-decoration: none;
-    color: #222;
-    font-size: 1.6em;
-    padding: 5px;
-}
-
-nav ul li a:hover {
-    color: #444;
-    text-decoration: underline;
-    background-color: #ddd;
-    border-radius: 15%;
-}
-
-nav ul li a:active {
-    color: #30c9c9;
-    text-decoration: underline;
-}
-
-header img {
-    width: 64px;
-    height: 64px;
-    display: inline;
-    margin-right: 2vw;
+h1, h2, h3, h4, h5, h6, p, a, label {
+    color: #666666;
 }
 
 .login-container {
-    background-color: #fff;
+    background-color: #f0f0f0;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     max-width: 90%;
+    margin: 5vw 0;
 }
 #username, #password {           
     width: 100%;                
@@ -148,18 +86,7 @@ h3 + h3 {
     color: #11cfbc;
 }
 
-@media (max-width: 600px) {
-    nav ul li {
-        margin-right: 5px; 
-        font-size: 1.2em; 
-    }
-
-    header img {
-        width: 48px;
-        height: 48px;
-    }
-
-    header {
-        padding: 5px;
-    }
+header, footer {
+    width: 100%;
+    box-sizing: border-box;
 }
