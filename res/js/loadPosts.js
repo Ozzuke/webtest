@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('https://gist.github.com/Anyro0/8b85110c4018e8be17c169915de66d8f.js')
+    fetch('https://gist.githubusercontent.com/Anyro0/8b85110c4018e8be17c169915de66d8f/raw/7ebb7dda6b3fe702505c6836d8629cfd2145839b/posts.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to fetch JSON data");
