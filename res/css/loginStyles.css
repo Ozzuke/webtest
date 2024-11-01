@@ -90,3 +90,7 @@ header, footer {
     width: 100%;
     box-sizing: border-box;
 }
+
+footer > p {
+    color: #000000;
+}
