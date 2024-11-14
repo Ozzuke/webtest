@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": "Markus Liivak",
+      "date": "2024-08-25",
+      "time": "19:13",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Man I had such a fun day today! Isn't life wonderful?<br>(Was mostly goofing around with Max lol)",
+        "images": ["images/posts/post1_image1.jpg"]
+      },
+      "reactions": {
+        "like": 8,
+        "dislike": 0,
+        "haha": 1
+      }
+    },
+    {
+      "id": 2,
+      "author": "Jane Kask",
+      "date": "2024-09-03",
+      "time": "09:40",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "I wonder if I should start a blog... 🤔<br><br>I mean, I have so many thoughts and ideas that I want to share with the world!\nLike, did you know that the Earth is flat? 🌍\nIt's true! I saw it on the internet today!"
+      },
+      "reactions": {
+        "like": 2,
+        "dislike": 5,
+        "haha": 14
+      }
+    },
+    {
+      "id": 3,
+      "author": "Liisa Murel",
+      "date": "2024-09-05",
+      "time": "15:01",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Found these photos, anyone know where they're from? I reallllly wanna go there!!",
+        "images": [
+          "images/posts/post3_image1.jpg",
+          "images/posts/post3_image2.jpg"
+        ]
+      },
+      "reactions": {
+        "like": 2,
+        "dislike": 0,
+        "haha": 0
+      }
+    },
+    {
+      "id": 4,
+      "author": "Maria Kallas",
+      "date": "2024-09-12",
+      "time": "23:05",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Felt cute, might delete later 😘",
+        "images": ["images/posts/post4_image1.jpg"]
+      },
+      "reactions": {
+        "like": 8,
+        "dislike": 0,
+        "haha": 1
+      }
+    },
+    {
+      "id": 5,
+      "author": "Karl Kukk",
+      "date": "2024-09-25",
+      "time": "11:27",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "I'm moving to a new place soon! 🏠<br>If anyone can help me, I'll pay you in pizza! 🍕 Just send me a DM"
+      },
+      "reactions": {
+        "like": 31,
+        "dislike": 1,
+        "haha": 15
+      }
+    }
+  ]
+}
