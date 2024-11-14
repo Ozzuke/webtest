@@ -42,21 +42,19 @@ body {
   flex-direction: column;
 }
 
-#layout {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  flex-wrap: wrap;
-  padding: 0;
-}
-
 main {
   flex: 1;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+button > img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-user-drag: none;
 }
 </style>

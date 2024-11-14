@@ -80,5 +80,25 @@ export default {
 </script>
 
 <style scoped>
+.home-layout {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 0;
+}
 
+aside {
+    max-width: 300px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 15vw;
+    margin: 0;
+    padding: 30px 20px;
+    background-color: lightgray;
+}
 </style>

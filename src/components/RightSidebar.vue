@@ -5,9 +5,13 @@ export default {
 </script>
 
 <template>
-rightSidebar
+  <aside class="right-sidebar">
+    <h2>Right Sidebar</h2>
+  </aside>
 </template>
 
 <style scoped>
-
+aside {
+    border-left: #666 solid 1px;
+}
 </style>
