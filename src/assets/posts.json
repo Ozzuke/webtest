@@ -80,6 +80,89 @@
         "dislike": 1,
         "haha": 15
       }
+    },
+    {
+      "id": 6,
+      "author": "Mart Tamm",
+      "date": "2024-09-26",
+      "time": "08:15",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Just finished my first marathon! 🏃‍♂️ Never thought I'd make it, but here we are! Special thanks to everyone who supported me!",
+        "images": ["images/posts/post6_image1.png"]
+      },
+      "reactions": {
+        "like": 45,
+        "dislike": 0,
+        "haha": 2
+      }
+    },
+    {
+      "id": 7,
+      "author": "Eva Saar",
+      "date": "2024-09-27",
+      "time": "14:22",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Just got accepted into my dream university! 🎓 Cambridge, here I come! Thank you everyone for believing in me!"
+      },
+      "reactions": {
+        "like": 89,
+        "dislike": 0,
+        "haha": 0
+      }
+    },
+    {
+      "id": 8,
+      "author": "Andres Lepp",
+      "date": "2024-09-28",
+      "time": "19:45",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Check out my new coding project! Built a simple weather app using Vue.js. Would love some feedback from fellow developers! 💻",
+        "images": [
+          "images/posts/post8_image1.png"
+        ]
+      },
+      "reactions": {
+        "like": 23,
+        "dislike": 1,
+        "haha": 0
+      }
+    },
+    {
+      "id": 9,
+      "author": "Laura Kivi",
+      "date": "2024-09-29",
+      "time": "11:33",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "My garden is finally blooming! 🌸 Started this project during lockdown and now it's a little paradise. Included before/after pics!",
+        "images": [
+          "images/posts/post9_image1.png",
+          "images/posts/post9_image2.png"
+        ]
+      },
+      "reactions": {
+        "like": 67,
+        "dislike": 0,
+        "haha": 1
+      }
+    },
+    {
+      "id": 10,
+      "author": "Tõnis Mets",
+      "date": "2024-09-30",
+      "time": "20:05",
+      "userIcon": "images/default-user-icon.svg",
+      "content": {
+        "text": "Anyone up for a game night this weekend? 🎮 I've got Mario Kart, Smash Bros, and plenty of snacks! DM me if interested!"
+      },
+      "reactions": {
+        "like": 12,
+        "dislike": 0,
+        "haha": 3
+      }
     }
   ]
 }
