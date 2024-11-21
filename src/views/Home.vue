@@ -19,7 +19,8 @@
         />
       </div>
       <div>
-        <p id="page-end-text">&lt; No more posts to show,
+        <span id="page-end-text">
+          &lt; No more posts to show,
           <RouterLink to="/add-post">
             create a post
           </RouterLink>
@@ -27,7 +28,10 @@
           <RouterLink to="/">
             go to the top
           </RouterLink> &gt;
-        </p>
+        </span>
+        <button @click="resetLikes" id="reset-likes">
+          Reset Reactions
+        </button>
       </div>
     </main>
 
@@ -61,7 +65,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions(['fetchPosts']),
+    ...mapActions(['fetchPosts', "resetLikes"]),
     loadPosts() {
       try {
         this.fetchPosts()
@@ -80,25 +84,56 @@ export default {
 </script>
 
 <style scoped>
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .home-layout {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-    flex-wrap: wrap;
-    padding: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  padding: 0;
 }
 
 aside {
-    max-width: 300px;
-    min-width: 200px;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 15vw;
-    margin: 0;
-    padding: 30px 20px;
-    background-color: lightgray;
+  max-width: 300px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 15vw;
+  margin: 0;
+  padding: 30px 20px;
+  background-color: lightgray;
+}
+
+#posts-container + div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+#posts-container + div span {
+  color: #666;
+  font-style: italic;
+}
+
+#reset-likes {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>

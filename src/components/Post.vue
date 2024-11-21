@@ -161,10 +161,10 @@ article {
   width: auto;
   height: 32px;
   padding: 0 0;
-  margin: 0;
   background-color: transparent;
   border: none;
-  margin-right: 3px;
+  margin: 0 3px 0 0;
+  cursor: pointer;
 }
 
 .reaction:last-of-type button {

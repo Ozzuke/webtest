@@ -20,7 +20,9 @@ export default createStore({
         },
         resetLikes(state) {
             state.posts.forEach(post => {
-                post.reactions.forEach(react => post.reactions[react] = 0)
+                for (const react in post.reactions) {
+                    post.reactions[react] = 0
+                }
             })
         }
     },
