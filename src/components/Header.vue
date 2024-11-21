@@ -1,21 +1,28 @@
 <script>
+import {generateName} from "@/utils/nameGenerator";
+
 export default {
   name: "Header",
   mounted() {
     const userIcon = document.getElementById('user-icon');
     const dropdownMenu = document.getElementById('dropdown-menu');
 
-    userIcon.addEventListener('click', function() {
+    userIcon.addEventListener('click', function () {
       dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     });
 
-    window.addEventListener('click', function(event) {
+    window.addEventListener('click', function (event) {
       if (!event.target.matches('#user-icon')) {
         if (dropdownMenu.style.display === 'block') {
           dropdownMenu.style.display = 'none';
         }
       }
     });
+  },
+  computed: {
+    userName() {
+      return generateName();
+    }
   }
 }
 </script>
@@ -32,8 +39,8 @@ export default {
       <img src="../assets/images/default-user-icon.svg" alt="User icon" id="user-icon">
       <div id="dropdown-menu" class="dropdown-menu">
         <div class="user-info">
-          <p id="user-name">User Name</p>
-          <p id="user-email">user@example.com</p>
+          <p id="user-name">{{ userName.fullName }}</p>
+          <p id="user-email">{{ userName.email }}</p>
         </div>
         <a href="/login">Logout</a>
       </div>
@@ -51,6 +58,7 @@ header {
   flex-direction: row;
   z-index: 100;
 }
+
 nav > ul {
   list-style-type: none;
   padding: 0;
@@ -81,6 +89,7 @@ nav ul li a:hover {
   background-color: #ddd;
   border-radius: 15%;
 }
+
 nav ul li a:active {
   color: #30c9c9;
   text-decoration: underline;
