@@ -42,14 +42,6 @@ body {
   flex-direction: column;
 }
 
-main {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 button > img {
     width: 100%;
     height: 100%;
