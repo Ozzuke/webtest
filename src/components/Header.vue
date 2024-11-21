@@ -25,7 +25,7 @@ export default {
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/addPost">addPost</a></li>
+        <li><a href="/add-post">addPost</a></li>
       </ul>
     </nav>
     <div class="user-icon-container">
