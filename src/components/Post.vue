@@ -1,4 +1,6 @@
 <script>
+import {mapActions} from "vuex";
+
 export default {
   name: "Post",
   props: {
@@ -14,6 +16,19 @@ export default {
     contentImages() {
       return this.post.content.images.map(image => require(`@/assets/${image}`))
     }
+  },
+  methods: {
+    ...mapActions(['updateReaction']),
+    handleReaction(reaction) {
+      this.updateReaction({ postId: this.post.id, reaction })
+    },
+    formatDate(date) {
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      })
+    }
   }
 }
 </script>
@@ -22,8 +37,10 @@ export default {
   <article class="post">
     <div class="post-header">
       <img :src="userIconSrc" alt="User icon" class="user-icon">
-        <span class="post-author">{{ post.author }}</span>
-        <span class="post-date">{{ post.date }} <time>{{ post.time }}</time></span>
+      <span class="post-author">{{ post.author }}</span>
+      <span class="post-date">
+        <time>{{ post.time }}</time>
+        {{ formatDate(new Date(post.date)) }} </span>
     </div>
 
     <div class="post-content">
@@ -40,23 +57,11 @@ export default {
 
     <div class="post-footer">
       <div class="post-reactions">
-        <div class="reaction">
-          <button>
-            <img src="@/assets/images/like.svg" alt="Like button">
+        <div v-for="(count, reaction) in post.reactions" :key="reaction" class="reaction">
+          <button @click="handleReaction(reaction)">
+            <img :src="require(`@/assets/images/${reaction}.svg`)" :alt="`${reaction} button`">
           </button>
-          <span class="reaction-count">{{ post.reactions.like }}</span>
-        </div>
-        <div class="reaction">
-          <button>
-            <img src="@/assets/images/dislike.svg" alt="Dislike button">
-          </button>
-          <span class="reaction-count">{{ post.reactions.dislike }}</span>
-        </div>
-        <div class="reaction">
-          <button>
-            <img src="@/assets/images/haha.svg" alt="Haha button">
-          </button>
-          <span class="reaction-count">{{ post.reactions.haha }}</span>
+          <span class="reaction-count">{{ count }}</span>
         </div>
       </div>
     </div>
