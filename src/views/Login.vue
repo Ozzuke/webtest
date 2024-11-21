@@ -1,13 +1,25 @@
-<script>
-export default {
-  name: "Login"
-}
-</script>
-
 <template>
-login
+  <div>
+    <main>
+      <LoginContainer @login="handleLogin" />
+    </main>
+  </div>
 </template>
 
-<style scoped>
+<script>
+import LoginContainer from "@/components/LoginContainer.vue";
 
-</style>
+export default {
+  name: "Login",
+  components: {
+    LoginContainer,
+  },
+  methods: {
+    handleLogin({ email, password }) {
+      // Handle login logic here
+      console.log("Email:", email, "Password:", password);
+      this.$router.push("/");
+    },
+  },
+};
+</script>
