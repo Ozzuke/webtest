@@ -6,13 +6,37 @@ export default {
 
 <template>
   <aside class="left-sidebar">
-    <h2>Left Sidebar</h2>
+    <h2>Current issues</h2>
+    <ul>
+      <li>Login page doesn't check for presence of email or password</li>
+      <li>Signup page isn't implemented</li>
+      <li>Many files contain redundant / unused legacy code</li>
+    </ul>
   </aside>
 </template>
 
 <style scoped>
 aside {
-    border-right: #666 solid 1px;
-    text-align: end;
+  border-right: #666 solid 1px;
+  text-align: end;
+}
+
+h2 {
+  color: #c00;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+li {
+  margin: 10px 0 10px 10px;
+  padding: 10px;
+  background-color: #f0dddd;
+  border-radius: 8px;
+  border: #c44 solid 1px;
+  text-align: left;
 }
 </style>
