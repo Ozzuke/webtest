@@ -1,43 +1,36 @@
 <template>
-    <div class="login-wrapper">
-      <div class="login-container">
-        <h2>Login</h2>
-        <h3 class="highlight">Welcome Back</h3>
-        <div class="input-group">
-          <label for="username">Username</label>
-          <input id="username" type="text" placeholder="Enter username" />
-        </div>
-        <div class="input-group">
-          <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Enter password" />
-        </div>
-        <button class="btn-login">Login</button>
-        <p class="Forget-password">Forgot your password?</p>
-      </div>
+  <div class="login-container">
+    <h2>Login</h2>
+    <h3 class="highlight">Welcome Back</h3>
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input id="username" type="text" placeholder="Enter username"/>
     </div>
-  </template>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter password"/>
+    </div>
+    <router-link to="/" class="align-center"><button class="btn-login">Login</button></router-link>
+    <p class="Forget-password">Forgot your password?</p>
+    <router-link to="/signup" class="signup">Sign up</router-link>
+  </div>
+</template>
 
 <script>
 export default {};
 </script>
 
 <style scoped>
-.login-wrapper {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  height: 100vh;     
-  background-color: #e5e5e5; 
-  margin: 0;
-}
 .login-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    max-width: 90%;
-    margin: 5vw 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  margin: 5vw 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -73,14 +66,19 @@ h3 {
   opacity: 1;
 }
 
+.align-center {
+  align-self: center;
+}
+
 .btn-login {
-  width: 100%;
   padding: 10px;
   background-color: #343a8f;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  align-self: center;
+  min-width: 100px;
 }
 
 .btn-login:hover {
@@ -91,5 +89,24 @@ h3 {
   text-align: center;
   margin-top: 10px;
   color: #11cfbc;
+  cursor: pointer;
+}
+
+.Forget-password:hover {
+  text-decoration: underline;
+  color: #0d9e9e;
+}
+
+.signup {
+  text-align: center;
+  margin-top: 0;
+  color: #0a7c71;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.signup:hover {
+  text-decoration: underline;
+  color: #0d9e9e;
 }
 </style>

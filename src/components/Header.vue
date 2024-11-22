@@ -99,6 +99,7 @@ header img {
   width: 64px;
   height: 64px;
   display: inline;
+  -webkit-user-drag: none;
 }
 
 .user-info {

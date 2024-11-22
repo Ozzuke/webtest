@@ -1,9 +1,7 @@
 <template>
-  <div>
     <main>
       <LoginContainer @login="handleLogin" />
     </main>
-  </div>
 </template>
 
 <script>

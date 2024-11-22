@@ -92,6 +92,7 @@ article {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  -webkit-user-drag: none;
 }
 
 .post-header img + span {

@@ -81,7 +81,6 @@ export function generateName() {
         `${normalFirst}.${normalLast[0]}@${emailProvider}`,
         `${normalFirst[0]}.${normalLast}@${emailProvider}`,
         `${normalFirst}${normalLast[0]}@${emailProvider}`,
-        `${normalFirst[0]}${normalLast[0]}@${emailProvider}`,
         `${normalFirst}${genRandomNumber()}${genRandomNumber()}@${emailProvider}`,
         `${normalFirst}${normalLast}${genRandomNumber()}@${emailProvider}`,
         `${normalFirst}${normalLast}${genRandomNumber()}${genRandomNumber()}@${emailProvider}`

@@ -17,23 +17,13 @@ export default {
         <input type="file" id="post-image" name="post-image" accept="image/*" class="hidden">
       </div>
       <div class="submit-button-div">
-        <button type="submit" class="submit-button"><a href="index.html">Create post</a></button>
+        <router-link to="/"><button type="submit" class="submit-button">Create Post</button></router-link>
       </div>
     </form>
   </div>
 </template>
 
 <style scoped>
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #addPost-layout {
   display: flex;
   justify-content: center;
@@ -42,18 +32,23 @@ main {
 }
 
 form {
-  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin: 10px;
   background-color: #f0f0f0;
   border-radius: 1em;
-  flex-grow: 1;
   width: 28vw;
+  min-width: 300px;
+  max-width: 500px;
+  height: auto;
 }
 
 .addPost-form div {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 1vw;
+  padding: 10px;
 }
 
 .submit-button-div {
@@ -62,11 +57,11 @@ form {
 }
 
 textarea {
-  padding: 1vw;
+  padding: 10px;
   border-radius: 4px;
   border-style: none;
   width: 100%;
-  height: 20vh;
+  height: auto;
 }
 
 .submit-button {
@@ -77,6 +72,7 @@ textarea {
   padding: 0.5vw 1vw;
   border-radius: 4px;
   font-size: 1em;
+  cursor: pointer;
 }
 
 .submit-button > a {

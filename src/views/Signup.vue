@@ -1,11 +1,11 @@
 <script>
 export default {
-  name: "SignUp"
+  name: "Signup"
 }
 </script>
 
 <template>
-SignUp
+Signup
 </template>
 
 <style scoped>
