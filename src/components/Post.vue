@@ -20,7 +20,7 @@ export default {
   methods: {
     ...mapActions(['updateReaction']),
     handleReaction(reaction) {
-      this.updateReaction({ postId: this.post.id, reaction })
+      this.updateReaction({postId: this.post.id, reaction})
     },
     formatDate(date) {
       return date.toLocaleDateString('en-US', {
@@ -28,6 +28,17 @@ export default {
         month: 'short',
         day: 'numeric'
       })
+    },
+    nextImage() {
+      this.currentImageIndex = (this.currentImageIndex + 1) % this.post.content.images.length
+    },
+    prevImage() {
+      this.currentImageIndex = (this.currentImageIndex - 1 + this.post.content.images.length) % this.post.content.images.length
+    }
+  },
+  data() {
+    return {
+      currentImageIndex: 0
     }
   }
 }
@@ -46,12 +57,28 @@ export default {
     <div class="post-content">
       <p v-html="post.content.text"></p>
       <div v-if="post.content.images" class="post-images">
-        <img
-            v-for="(image, index) in post.content.images"
-            :key="index"
-            :src="contentImages[index]"
-            alt="Post image"
-        >
+        <div class="carousel">
+          <button
+              v-if="post.content.images.length > 1"
+              @click="prevImage"
+              class="prev-button"
+              :disabled="currentImageIndex === 0"
+          >
+            &#8249;
+          </button>
+          <img :src="contentImages[currentImageIndex]" alt="Post image">
+          <button
+              v-if="post.content.images.length > 1"
+              @click="nextImage"
+              class="next-button"
+              :disabled="currentImageIndex === post.content.images.length - 1"
+          >
+            &#8250;
+          </button>
+          <div v-if="contentImages.length > 1" class="image-counter">
+            {{ currentImageIndex + 1 }} / {{ post.content.images.length }}
+          </div>
+        </div>
       </div>
     </div>
 
@@ -120,7 +147,16 @@ article {
   margin: 10px 0;
 }
 
-.post-content img {
+.carousel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel img {
   width: auto;
   height: auto;
   max-width: 100%;
@@ -129,8 +165,47 @@ article {
   margin-right: auto;
 }
 
-.post-content img ~ img {
-  margin-top: 10px;
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5em;
+  cursor: pointer;
+  text-align: center;
+  z-index: 2;
+}
+
+.carousel button:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.carousel button:disabled {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+}
+
+.prev-button {
+  left: 5px;
+}
+
+.next-button {
+  right: 5px;
+}
+
+.image-counter {
+  position: absolute;
+  bottom: 5px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  color: #444;
+  z-index: 2;
 }
 
 .post-footer {
