@@ -103,6 +103,26 @@ header img {
   -webkit-user-drag: none;
 }
 
+header img:hover {
+  cursor: pointer;
+  animation: rotate 10s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: rotate(calc(360deg * 9));
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(3000px);
+    animation-timing-function: ease-in;
+  }
+}
+
 .user-info {
   padding: 12px 16px;
   border-bottom: 1px solid #ddd;
