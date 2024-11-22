@@ -33,6 +33,7 @@ export default {
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/add-post">addPost</a></li>
+        <li><a href="/signup">Signup</a></li>
       </ul>
     </nav>
     <div class="user-icon-container">
