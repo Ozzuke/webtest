@@ -1,24 +1,8 @@
-# temp-vue
+Repository for a group project in a web application development course in University of Tartu.
 
-## Project setup
-```
-npm install
-```
+Team members:
+- Osvald
+- Leo-Martin
+- Robyn
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+GitHub Pages link: https://ozzuke.github.io/WebDev-X

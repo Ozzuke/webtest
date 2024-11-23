@@ -67,7 +67,7 @@ footer {
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%, 25%, 95%, 100% {
     transform: rotate(0deg);
   }
   5%, 15% {
@@ -75,9 +75,6 @@ footer {
   }
   10%, 20% {
     transform: rotate(-10deg);
-  }
-  25%, 95% {
-    transform: rotate(0deg);
   }
 }
 </style>
