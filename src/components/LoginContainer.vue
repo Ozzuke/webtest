@@ -12,7 +12,7 @@
     </div>
     <router-link to="/" class="align-center"><button class="btn-login">Login</button></router-link>
     <p class="Forget-password">Forgot your password?</p>
-    <router-link to="/signup" class="signup">Sign up</router-link>
+    <router-link to="/signup" class="signup">Sign up instead</router-link>
   </div>
 </template>
 
