@@ -31,9 +31,9 @@ export default {
   <header>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/add-post">addPost</a></li>
-        <li><a href="/signup">Signup</a></li>
+        <li><RouterLink to="/">Home</RouterLink></li>
+        <li><RouterLink to="/add-post">Add Post</RouterLink></li>
+        <li><RouterLink to="/signup">Sign Up</RouterLink></li>
       </ul>
     </nav>
     <div class="user-icon-container">
@@ -43,7 +43,7 @@ export default {
           <p id="user-name">{{ userName.fullName }}</p>
           <p id="user-email">{{ userName.email }}</p>
         </div>
-        <a href="/login">Logout</a>
+        <RouterLink to="/login">Logout</RouterLink>
       </div>
     </div>
   </header>
@@ -76,7 +76,7 @@ nav ul li + li {
   border-left: solid black 2px;
 }
 
-nav ul li a {
+nav ul li RouterLink {
   font-family: monospace;
   text-decoration: none;
   color: #222;
@@ -84,14 +84,14 @@ nav ul li a {
   padding: 5px;
 }
 
-nav ul li a:hover {
+nav ul li RouterLink:hover {
   color: #444;
   text-decoration: underline;
   background-color: #ddd;
   border-radius: 15%;
 }
 
-nav ul li a:active {
+nav ul li RouterLink:active {
   color: #30c9c9;
   text-decoration: underline;
 }
@@ -105,7 +105,7 @@ header img {
 
 header img:hover {
   cursor: pointer;
-  animation: rotate 10s;
+  animation: rotate 20s;
 }
 
 @keyframes rotate {
@@ -113,7 +113,7 @@ header img:hover {
     transform: rotate(0deg);
     animation-timing-function: ease-in;
   }
-  80% {
+  90% {
     transform: rotate(calc(360deg * 9));
     animation-timing-function: ease-in;
   }
@@ -152,14 +152,14 @@ header img:hover {
   padding: 10px;
 }
 
-#dropdown-menu a {
+#dropdown-menu RouterLink {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: #222;
 }
 
-#dropdown-menu a:hover {
+#dropdown-menu RouterLink:hover {
   background-color: #f0f0f0;
 }
 </style>

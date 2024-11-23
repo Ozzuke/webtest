@@ -22,12 +22,9 @@
         <span id="page-end-text">
           &lt; No more posts to show,
           <RouterLink to="/add-post">
-            create a post
+            create a post yourself!
           </RouterLink>
-          or
-          <RouterLink to="/">
-            go to the top
-          </RouterLink> &gt;
+          &gt;
         </span>
         <button @click="resetLikes" id="reset-likes">
           Reset Reactions
