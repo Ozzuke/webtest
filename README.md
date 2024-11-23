@@ -5,8 +5,6 @@ Team members:
 - Leo-Martin
 - Robyn
 
-Yes, that's a good, concise guide for your teammates. It covers the essential steps for manual deployment. However, to make it even more comprehensive and foolproof, you might want to expand it slightly. Here's an enhanced version:
-
 ## Deploying to GitHub Pages
 
 1. Ensure you're on the main branch and have the latest changes:
