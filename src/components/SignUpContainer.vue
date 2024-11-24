@@ -75,6 +75,7 @@ export default {
   
 <style scoped>
 #signup-wrapper {
+    
     display: flex;
     justify-content: center;
     align-content: center;
