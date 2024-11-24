@@ -1,22 +1,25 @@
 <template>
-    <div class="signup-container">
-        <h2>Sign Up</h2>
-        <form @submit.prevent="onSignup">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input v-model="name" type="text" id="username" name="username" required placeholder="Username" />
+    <div id="signup-wrapper">
+        <div class="signup-container">
+            <h2>Sign Up</h2>
+            <form @submit.prevent="onSignup">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input v-model="name" type="text" id="username" name="username" required placeholder="Username" />
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input v-model="password" type="password" id="password" name="password" required
+                        placeholder="Password" />
+                </div>
+                <button type="submit" class="btn-signup">Sign Up</button>
+            </form>
+            <div class="login-link">
+                <p>
+                    Already have an account?
+                    <RouterLink to="/login">Login</RouterLink>
+                </p>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input v-model="password" type="password" id="password" name="password" required placeholder="Password" />
-            </div>
-            <button type="submit" class="btn-signup">Sign Up</button>
-        </form>
-        <div class="login-link">
-            <p>
-                Already have an account?
-                <a href="/login" class="highlight">Log In</a>
-            </p>
         </div>
     </div>
 </template>
@@ -49,15 +52,15 @@ export default {
                 alert("password is not valid - password must contain at least one number.");
                 return;
             }
-            if(!/^[A-Z]/.test(this.password)){
+            if (!/^[A-Z]/.test(this.password)) {
                 alert("password is not valid - password must start with an uppercase alphabet");
                 return;
             }
-            if(!/_/.test(this.password)){
+            if (!/_/.test(this.password)) {
                 alert("password is not valid - password must contain character _");
                 return;
             }
-            
+
             // Perform signup logic here
 
             console.log("Username:", this.username);
@@ -71,7 +74,15 @@ export default {
 </script>
   
 <style scoped>
+#signup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
 .signup-container {
+    max-height: fit-content;
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 8px;
@@ -79,6 +90,8 @@ export default {
     max-width: 90%;
     margin: 5vw auto;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
 }
 
 h2 {

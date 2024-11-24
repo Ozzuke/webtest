@@ -42,7 +42,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
+  
 }
 
 #app {

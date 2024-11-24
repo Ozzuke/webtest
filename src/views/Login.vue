@@ -1,3 +1,12 @@
+<script>
+import LoginContainer from "@/components/LoginContainer.vue";
+
+export default {
+  name: "Login",
+  components: {LoginContainer}
+};
+</script>
+
 <template>
   <div>
     <main>
@@ -5,14 +14,3 @@
     </main>
   </div>
 </template>
-
-<script>
-import LoginContainer from "@/components/LoginContainer.vue";
-
-export default {
-  name: "Login",
-  components: {
-    LoginContainer,
-  }
-};
-</script>

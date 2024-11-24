@@ -54,6 +54,7 @@ export default {
 
 <style scoped>
 footer {
+  margin-top: auto;
   flex-shrink: 0;
   background-color: #f0f0f0;
   padding: 10px;

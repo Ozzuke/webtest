@@ -1,5 +1,5 @@
 <template>
-  <div class="login-wrapper">
+  <div id="login-wrapper">
     <div class="login-container">
       <h2>Login</h2>
       <h3 class="highlight">Welcome Back</h3>
@@ -15,7 +15,7 @@
       <div class="SignUp-link">
         <p>
           Don't have an account?
-          <a href="/SignUp" class="highlight">Sign Up</a>
+          <RouterLink to="/signup">Sign Up</RouterLink>
         </p>
       </div>
       <p class="Forget-password">Forgot your password?</p>
@@ -25,42 +25,43 @@
 
 <script>
 export default {
+  name: "LoginContainer", // Move 'name' outside methods
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
   methods: {
-    name: "LoginContainer",
-    data() {
-      return {
-        username: "",
-        password: "",
-      };
-    },
     handleLogin() {
       // Handle login logic here
-      console.log("Email:", this.username, "Password:", this.password);
+      console.log("Username:", this.username, "Password:", this.password);
       this.$router.push("/");
     },
     handleSignup() {
       this.$router.push("/SignUp");
-    }
+    },
   },
 };
 </script>
 
 <style scoped>
+
 .SignUp-link {
   text-align: center;
   margin-top: 10px;
 }
 
-.login-wrapper {
+#login-wrapper {
+  min-height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  background-color: #e5e5e5;
-  margin: 0;
+  align-content: center;
+  flex-direction: column;
 }
 
 .login-container {
+  max-height: fit-content;
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
@@ -68,6 +69,7 @@ export default {
   max-width: 90%;
   margin: 5vw 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
 }
 
 h2 {
