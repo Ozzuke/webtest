@@ -1,13 +1,18 @@
-<script>
-export default {
-  name: "Signup"
-}
-</script>
-
 <template>
-Signup
+  <div>
+    <main>
+      <SignUpContainer @login="handleLogin" />
+    </main>
+  </div>
 </template>
 
-<style scoped>
+<script>
+import SignUpContainer from "@/components/SignUpContainer.vue";
 
-</style>
+export default {
+  name: "SignUp",
+  components: {
+    SignUpContainer,
+  }
+};
+</script> 
