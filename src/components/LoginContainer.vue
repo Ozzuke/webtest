@@ -3,15 +3,17 @@
     <div class="login-container">
       <h2>Login</h2>
       <h3 class="highlight">Welcome Back</h3>
-      <div class="input-group">
-        <label for="username">Username</label>
-        <input id="username" type="text" placeholder="Enter username" />
-      </div>
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Enter password" />
-      </div>
-      <button type="submit" class="btn-login">Login</button>
+      <form @submit.prevent="handleLogin">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input id="username" type="text" placeholder="Enter username" required/>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Enter password" required/>
+        </div>
+        <button type="submit" class="btn-login">Login</button>
+      </form>
       <div class="SignUp-link">
         <p>
           Don't have an account?
@@ -25,7 +27,7 @@
 
 <script>
 export default {
-  name: "LoginContainer", // Move 'name' outside methods
+  name: "LoginContainer",
   data() {
     return {
       username: "",
@@ -37,16 +39,12 @@ export default {
       // Handle login logic here
       console.log("Username:", this.username, "Password:", this.password);
       this.$router.push("/");
-    },
-    handleSignup() {
-      this.$router.push("/SignUp");
-    },
+    }
   },
 };
 </script>
 
 <style scoped>
-
 .SignUp-link {
   text-align: center;
   margin-top: 10px;

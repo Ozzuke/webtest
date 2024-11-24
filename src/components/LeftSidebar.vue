@@ -8,8 +8,6 @@ export default {
   <aside class="left-sidebar">
     <h2>Current issues</h2>
     <ul>
-      <li>Login page doesn't check for presence of email or password</li>
-      <li>Signup page isn't implemented</li>
       <li>Many files contain redundant / unused legacy code</li>
     </ul>
   </aside>
