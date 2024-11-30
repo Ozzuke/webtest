@@ -76,7 +76,7 @@ nav ul li + li {
   border-left: solid black 2px;
 }
 
-nav ul li RouterLink {
+nav ul li a {
   font-family: monospace;
   text-decoration: none;
   color: #222;
@@ -84,14 +84,14 @@ nav ul li RouterLink {
   padding: 5px;
 }
 
-nav ul li RouterLink:hover {
+nav ul li a:hover {
   color: #444;
   text-decoration: underline;
   background-color: #ddd;
   border-radius: 15%;
 }
 
-nav ul li RouterLink:active {
+nav ul li a:active {
   color: #30c9c9;
   text-decoration: underline;
 }
@@ -152,14 +152,14 @@ header img:hover {
   padding: 10px;
 }
 
-#dropdown-menu RouterLink {
+#dropdown-menu a {
   display: block;
   padding: 10px;
   text-decoration: none;
   color: #222;
 }
 
-#dropdown-menu RouterLink:hover {
+#dropdown-menu a:hover {
   background-color: #f0f0f0;
 }
 </style>
