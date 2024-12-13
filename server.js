@@ -94,7 +94,7 @@ function insertSampleData() {
   });
 }
 
-app.post('/signup', (req, res) => {
+app.post('/api/auth/signup', (req, res) => {
   const { email, password } = req.body;
 
   const insertUserQuery = `
@@ -114,7 +114,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-app.post('/login', (req, res) => {
+app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
 
   const findUserQuery = `
@@ -150,6 +150,119 @@ function verifyToken(req, res, next) {
     next();
   });
 }
+
+app.get('/api/posts', verifyToken, (req, res) => {
+  const getPostsQuery = `
+    SELECT * FROM posts;
+  `;
+
+  pool.query(getPostsQuery, (err, result) => {
+    if (err) {
+      console.error('Error fetching posts', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      res.status(200).json(result.rows);
+    }
+  });
+});
+
+app.get('/api/posts/:id', verifyToken, (req, res) => {
+  const { id } = req.params;
+
+  const getPostQuery = `
+    SELECT * FROM posts WHERE id = $1;
+  `;
+
+  pool.query(getPostQuery, [id], (err, result) => {
+    if (err) {
+      console.error('Error fetching post', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else if (result.rows.length === 0) {
+      res.status(404).json({ error: 'Post not found' });
+    } else {
+      res.status(200).json(result.rows[0]);
+    }
+  });
+});
+
+app.post('/api/posts', verifyToken, (req, res) => {
+  const { body } = req.body;
+
+  const insertPostQuery = `
+    INSERT INTO posts (body)
+    VALUES ($1)
+    RETURNING *;
+  `;
+
+  pool.query(insertPostQuery, [body], (err, result) => {
+    if (err) {
+      console.error('Error creating post', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      res.status(201).json(result.rows[0]);
+    }
+  });
+});
+
+app.put('/api/posts/:id', verifyToken, (req, res) => {
+  const { id } = req.params;
+  const { body } = req.body;
+
+  const updatePostQuery = `
+    UPDATE posts
+    SET body = $1
+    WHERE id = $2
+    RETURNING *;
+  `;
+
+  pool.query(updatePostQuery, [body, id], (err, result) => {
+    if (err) {
+      console.error('Error updating post', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else if (result.rows.length === 0) {
+      res.status(404).json({ error: 'Post not found' });
+    } else {
+      res.status(200).json(result.rows[0]);
+    }
+  });
+});
+
+app.delete('/api/posts/:id', verifyToken, (req, res) => {
+  const { id } = req.params;
+
+  const deletePostQuery = `
+    DELETE FROM posts
+    WHERE id = $1
+    RETURNING *;
+  `;
+
+  pool.query(deletePostQuery, [id], (err, result) => {
+    if (err) {
+      console.error('Error deleting post', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else if (result.rows.length === 0) {
+      res.status(404).json({ error: 'Post not found' });
+    } else {
+      res.status(200).json(result.rows[0]);
+    }
+  });
+});
+
+app.delete('/api/posts', verifyToken, (req, res) => {
+  const deleteAllPostsQuery = `
+    DELETE FROM posts
+    RETURNING *;
+  `;
+
+  pool.query(deleteAllPostsQuery, (err, result) => {
+    if (err) {
+      console.error('Error deleting all posts', err);
+      res.status(500).json({ error: 'Internal server error' });
+    } else {
+      res.status(200).json(result.rows);
+    }
+  });
+});
 
 app.get('/', (req, res) => {
   res.send('Hello, world!');
