@@ -34,7 +34,7 @@ export default {
         };
     },
     methods: {
-        onSignup() {
+        async onSignup() {
             const errors = [];
 
             if (this.password.length < 8) {
@@ -61,13 +61,34 @@ export default {
                 return;
             }
 
-            // Perform signup logic here
+            try {
+                const response = await fetch('http://localhost:3000/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email: this.username,
+                        password: this.password
+                    })
+                });
 
-            console.log("Username:", this.username);
-            console.log("Password:", this.password);
+                if (!response.ok) {
+                    throw new Error('Signup failed');
+                }
 
-            // Example redirect after signup
-            this.$router.push("/");
+                const data = await response.json();
+                const token = data.token;
+
+                // Store the token in local storage
+                localStorage.setItem('token', token);
+
+                // Redirect to home page
+                this.$router.push("/");
+            } catch (error) {
+                console.error('Error during signup:', error);
+                alert('Signup failed. Please try again.');
+            }
         },
     },
 };
