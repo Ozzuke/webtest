@@ -90,7 +90,9 @@ export default {
       this.$router.push('/add-post');
     },
     deleteAllPosts() {
-      // Implement delete all posts functionality
+      if (confirm("Are you sure you want to delete all posts? This action cannot be undone.")) {
+        // Implement delete all posts functionality
+      }
     }
   },
   created() {

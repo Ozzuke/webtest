@@ -74,7 +74,11 @@ export default {
                 this.$router.push("/");
             } catch (error) {
                 console.error('Error during signup:', error);
-                alert('Signup failed. Please try again.');
+                if (error.response && error.response.status === 409) {
+                    alert('Username already exists. Please choose a different username.');
+                } else {
+                    alert('Signup failed. Please try again.');
+                }
             }
         },
     },
