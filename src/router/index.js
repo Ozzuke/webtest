@@ -1,8 +1,10 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import AddPost from '../views/AddPost.vue'
-import Signup from "../views/Signup.vue";
+import Signup from "../views/Signup.vue"
+import ContactUs from "../views/ContactUs.vue"
+import SinglePostView from "../views/SinglePostView.vue"
 
 const routes = [
     {
@@ -10,7 +12,8 @@ const routes = [
         name: 'Home',
         component: Home,
         meta: {
-            title: 'WebDev-X'
+            title: 'WebDev-X',
+            requiresAuth: true
         }
     },
     {
@@ -26,7 +29,8 @@ const routes = [
         name: 'AddPost',
         component: AddPost,
         meta: {
-            title: 'Add Post | WebDev-X'
+            title: 'Add Post | WebDev-X',
+            requiresAuth: true
         }
     },
     {
@@ -35,6 +39,23 @@ const routes = [
         component: Signup,
         meta: {
             title: 'Sign Up | WebDev-X'
+        }
+    },
+    {
+        path: '/contact-us',
+        name: 'ContactUs',
+        component: ContactUs,
+        meta: {
+            title: 'Contact Us | WebDev-X'
+        }
+    },
+    {
+        path: '/post/:id',
+        name: 'SinglePostView',
+        component: SinglePostView,
+        meta: {
+            title: 'Post | WebDev-X',
+            requiresAuth: true
         }
     }
 ]
@@ -46,7 +67,14 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title || 'WebDev-X'
-    next()
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+    const isAuthenticated = !!localStorage.getItem('token')
+
+    if (requiresAuth && !isAuthenticated) {
+        next('/login')
+    } else {
+        next()
+    }
 })
 
 export default router
