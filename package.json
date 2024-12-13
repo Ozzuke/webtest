@@ -28,9 +28,12 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "browserstack": "^1.6.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.2.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   },
   "description": "Repository for a group project in a web application development course in University of Tartu.",
   "main": ".eslintrc.js",

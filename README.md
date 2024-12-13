@@ -37,3 +37,39 @@ Notes:
 - The `deploy` script will update the `gh-pages` branch with the contents of the `dist` folder on your local computer
 - GitHub Pages will use the `gh-pages` branch to serve the static files
 - The deployment will take a few minutes
+
+## Running Tests
+
+### Running Unit Tests
+
+To run the unit tests using Jest and Supertest, follow these steps:
+
+1. Ensure you have all dependencies installed:
+   ```bash
+   npm install
+   ```
+
+2. Run the tests:
+   ```bash
+   npm test
+   ```
+
+### Running Cross-Browser Tests
+
+To run cross-browser tests using BrowserStack, follow these steps:
+
+1. Ensure you have all dependencies installed:
+   ```bash
+   npm install
+   ```
+
+2. Set up your BrowserStack credentials in the environment variables:
+   ```bash
+   export BROWSERSTACK_USERNAME=your_browserstack_username
+   export BROWSERSTACK_ACCESS_KEY=your_browserstack_access_key
+   ```
+
+3. Run the cross-browser tests:
+   ```bash
+   npm run test:cross-browser
+   ```
