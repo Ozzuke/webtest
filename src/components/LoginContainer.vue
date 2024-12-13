@@ -27,6 +27,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import sanitize from 'sanitize-html';
 
 export default {
   name: "LoginContainer",
@@ -40,7 +41,11 @@ export default {
     ...mapActions(['login']),
     async handleLogin() {
       try {
-        await this.login({ email: this.username, password: this.password });
+        // Sanitize user inputs
+        const sanitizedUsername = sanitize(this.username);
+        const sanitizedPassword = sanitize(this.password);
+
+        await this.login({ email: sanitizedUsername, password: sanitizedPassword });
         this.$router.push("/");
       } catch (error) {
         console.error('Error during login:', error);

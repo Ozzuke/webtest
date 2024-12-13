@@ -26,6 +26,7 @@
   
 <script>
 import { mapActions } from 'vuex';
+import sanitize from 'sanitize-html';
 
 export default {
     name: "SignupContainer",
@@ -65,7 +66,11 @@ export default {
             }
 
             try {
-                await this.signup({ email: this.username, password: this.password });
+                // Sanitize user inputs
+                const sanitizedUsername = sanitize(this.username);
+                const sanitizedPassword = sanitize(this.password);
+
+                await this.signup({ email: sanitizedUsername, password: sanitizedPassword });
                 this.$router.push("/");
             } catch (error) {
                 console.error('Error during signup:', error);
@@ -149,4 +154,3 @@ h2 {
     text-decoration: underline;
 }
 </style>
-  
