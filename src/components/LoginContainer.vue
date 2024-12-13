@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "LoginContainer",
   data() {
@@ -35,30 +37,10 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['login']),
     async handleLogin() {
       try {
-        const response = await fetch('http://localhost:3000/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            email: this.username,
-            password: this.password
-          })
-        });
-
-        if (!response.ok) {
-          throw new Error('Login failed');
-        }
-
-        const data = await response.json();
-        const token = data.token;
-
-        // Store the token in local storage
-        localStorage.setItem('token', token);
-
-        // Redirect to home page
+        await this.login({ email: this.username, password: this.password });
         this.$router.push("/");
       } catch (error) {
         console.error('Error during login:', error);
