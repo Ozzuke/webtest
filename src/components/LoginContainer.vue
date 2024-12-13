@@ -6,11 +6,11 @@
       <form @submit.prevent="handleLogin">
         <div class="input-group">
           <label for="username">Username</label>
-          <input id="username" type="text" placeholder="Enter username" required/>
+          <input v-model="username" id="username" type="text" placeholder="Enter username" required/>
         </div>
         <div class="input-group">
           <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Enter password" required/>
+          <input v-model="password" id="password" type="password" placeholder="Enter password" required/>
         </div>
         <button type="submit" class="btn-login">Login</button>
       </form>
@@ -35,10 +35,35 @@ export default {
     };
   },
   methods: {
-    handleLogin() {
-      // Handle login logic here
-      console.log("Username:", this.username, "Password:", this.password);
-      this.$router.push("/");
+    async handleLogin() {
+      try {
+        const response = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            email: this.username,
+            password: this.password
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Login failed');
+        }
+
+        const data = await response.json();
+        const token = data.token;
+
+        // Store the token in local storage
+        localStorage.setItem('token', token);
+
+        // Redirect to home page
+        this.$router.push("/");
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('Login failed. Please check your credentials and try again.');
+      }
     }
   },
 };
