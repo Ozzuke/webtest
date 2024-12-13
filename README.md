@@ -5,6 +5,36 @@ Team members:
 - Leo-Martin
 - Robyn
 
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed on your machine:
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Ozzuke/webtest.git
+   cd webtest
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Starting the Development Server
+
+To start the development server, run the following command:
+```bash
+npm run serve
+```
+
+This will start the development server and you can access the application at `http://localhost:8080`.
+
 ## Deploying to GitHub Pages
 
 1. Ensure you're on the main branch and have the latest changes:
