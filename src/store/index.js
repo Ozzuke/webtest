@@ -47,7 +47,7 @@ export default createStore({
     },
     async login({ commit }, credentials) {
       try {
-        const response = await api.post('/login', credentials)
+        const response = await api.post('/api/auth/login', credentials)
         const token = response.data.token
         commit('setToken', token)
       } catch (error) {
@@ -57,7 +57,7 @@ export default createStore({
     },
     async signup({ commit }, credentials) {
       try {
-        const response = await api.post('/signup', credentials)
+        const response = await api.post('/api/auth/signup', credentials)
         const token = response.data.token
         commit('setToken', token)
       } catch (error) {
