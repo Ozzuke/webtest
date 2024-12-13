@@ -8,7 +8,10 @@ export default {
   <aside class="left-sidebar">
     <h2>Current issues</h2>
     <ul>
-      <li>Many files contain redundant / unused legacy code</li>
+      <li>Loading states not implemented in all components</li>
+      <li>Error messages could be improved</li>
+      <li>Confirmation dialogs for destructive actions not implemented</li>
+      <li>Logout cleanup could be more thorough</li>
     </ul>
   </aside>
 </template>

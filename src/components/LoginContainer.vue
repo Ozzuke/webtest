@@ -49,7 +49,11 @@ export default {
         this.$router.push("/");
       } catch (error) {
         console.error('Error during login:', error);
-        alert('Login failed. Please check your credentials and try again.');
+        if (error.response && error.response.status === 401) {
+          alert('Invalid username or password. Please try again.');
+        } else {
+          alert('Login failed. Please check your credentials and try again.');
+        }
       }
     }
   },

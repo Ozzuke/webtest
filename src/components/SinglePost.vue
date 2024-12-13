@@ -8,7 +8,7 @@
     </div>
     <div class="post-actions">
       <button @click="updatePost">Update</button>
-      <button @click="deletePost">Delete</button>
+      <button @click="confirmDeletePost">Delete</button>
     </div>
   </div>
 </template>
@@ -26,6 +26,11 @@ export default {
     updatePost() {
       // Implement update functionality here
       console.log('Update post:', this.post.id);
+    },
+    confirmDeletePost() {
+      if (confirm("Are you sure you want to delete this post? This action cannot be undone.")) {
+        this.deletePost();
+      }
     },
     deletePost() {
       // Implement delete functionality here
