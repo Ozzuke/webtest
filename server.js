@@ -2,12 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const { Pool } = require('pg');
 const jwt = require('jsonwebtoken'); // Import jsonwebtoken library
+const helmet = require('helmet'); // Import helmet for secure headers
+const { body, validationResult } = require('express-validator'); // Import express-validator for request validation
+const sanitize = require('sanitize-html'); // Import sanitize-html for input sanitization
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(helmet()); // Set up secure headers
 
 const pool = new Pool({
   user: 'your_db_user',
@@ -94,45 +98,73 @@ function insertSampleData() {
   });
 }
 
-app.post('/api/auth/signup', (req, res) => {
-  const { email, password } = req.body;
-
-  const insertUserQuery = `
-    INSERT INTO users (email, password)
-    VALUES ($1, $2)
-    RETURNING email;
-  `;
-
-  pool.query(insertUserQuery, [email, password], (err, result) => {
-    if (err) {
-      console.error('Error inserting user', err);
-      res.status(500).json({ error: 'Internal server error' });
-    } else {
-      const token = jwt.sign({ email }, 'your_jwt_secret', { expiresIn: '1h' }); // Generate JWT token
-      res.status(201).json({ token });
+app.post('/api/auth/signup', 
+  // Request validation
+  body('email').isEmail().withMessage('Invalid email address'),
+  body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  });
-});
 
-app.post('/api/auth/login', (req, res) => {
-  const { email, password } = req.body;
+    const { email, password } = req.body;
 
-  const findUserQuery = `
-    SELECT * FROM users WHERE email = $1 AND password = $2;
-  `;
+    // Sanitize user inputs
+    const sanitizedEmail = sanitize(email);
+    const sanitizedPassword = sanitize(password);
 
-  pool.query(findUserQuery, [email, password], (err, result) => {
-    if (err) {
-      console.error('Error finding user', err);
-      res.status(500).json({ error: 'Internal server error' });
-    } else if (result.rows.length === 0) {
-      res.status(401).json({ error: 'Invalid credentials' });
-    } else {
-      const token = jwt.sign({ email }, 'your_jwt_secret', { expiresIn: '1h' }); // Generate JWT token
-      res.status(200).json({ token });
+    const insertUserQuery = `
+      INSERT INTO users (email, password)
+      VALUES ($1, $2)
+      RETURNING email;
+    `;
+
+    pool.query(insertUserQuery, [sanitizedEmail, sanitizedPassword], (err, result) => {
+      if (err) {
+        console.error('Error inserting user', err);
+        res.status(500).json({ error: 'Internal server error' });
+      } else {
+        const token = jwt.sign({ email: sanitizedEmail }, 'your_jwt_secret', { expiresIn: '1h' }); // Generate JWT token
+        res.status(201).json({ token });
+      }
+    });
+  }
+);
+
+app.post('/api/auth/login', 
+  // Request validation
+  body('email').isEmail().withMessage('Invalid email address'),
+  body('password').isLength({ min: 8 }).withMessage('Password must be at least 8 characters long'),
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-  });
-});
+
+    const { email, password } = req.body;
+
+    // Sanitize user inputs
+    const sanitizedEmail = sanitize(email);
+    const sanitizedPassword = sanitize(password);
+
+    const findUserQuery = `
+      SELECT * FROM users WHERE email = $1 AND password = $2;
+    `;
+
+    pool.query(findUserQuery, [sanitizedEmail, sanitizedPassword], (err, result) => {
+      if (err) {
+        console.error('Error finding user', err);
+        res.status(500).json({ error: 'Internal server error' });
+      } else if (result.rows.length === 0) {
+        res.status(401).json({ error: 'Invalid credentials' });
+      } else {
+        const token = jwt.sign({ email: sanitizedEmail }, 'your_jwt_secret', { expiresIn: '1h' }); // Generate JWT token
+        res.status(200).json({ token });
+      }
+    });
+  }
+);
 
 function verifyToken(req, res, next) {
   const token = req.headers['authorization'];

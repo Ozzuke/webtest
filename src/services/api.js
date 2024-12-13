@@ -28,10 +28,20 @@ api.interceptors.response.use(
   response => {
     return response;
   },
-  error => {
-    if (error.response && error.response.status === 401) {
-      // Handle unauthorized access
-      store.dispatch('logout');
+  async error => {
+    const originalRequest = error.config;
+    if (error.response && error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      try {
+        const response = await api.post('/auth/refresh-token');
+        const newToken = response.data.token;
+        store.commit('setToken', newToken);
+        originalRequest.headers.Authorization = `Bearer ${newToken}`;
+        return api(originalRequest);
+      } catch (refreshError) {
+        store.dispatch('logout');
+        return Promise.reject(refreshError);
+      }
     }
     return Promise.reject(error);
   }

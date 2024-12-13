@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import sanitize from 'sanitize-html';
+
 export default {
   name: 'ContactUsForm',
   data() {
@@ -28,8 +30,13 @@ export default {
   },
   methods: {
     handleSubmit() {
+      // Sanitize user inputs
+      const sanitizedName = sanitize(this.name);
+      const sanitizedEmail = sanitize(this.email);
+      const sanitizedMessage = sanitize(this.message);
+
       // Handle form submission logic here
-      console.log('Form submitted:', this.name, this.email, this.message);
+      console.log('Form submitted:', sanitizedName, sanitizedEmail, sanitizedMessage);
     }
   }
 }
