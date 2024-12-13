@@ -6,6 +6,10 @@
       <span>Author: {{ post.author }}</span>
       <span>Date: {{ post.date }}</span>
     </div>
+    <div class="post-actions">
+      <button @click="updatePost">Update</button>
+      <button @click="deletePost">Delete</button>
+    </div>
   </div>
 </template>
 
@@ -16,6 +20,16 @@ export default {
     post: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    updatePost() {
+      // Implement update functionality here
+      console.log('Update post:', this.post.id);
+    },
+    deletePost() {
+      // Implement delete functionality here
+      console.log('Delete post:', this.post.id);
     }
   }
 }
@@ -42,5 +56,23 @@ export default {
 .post-details span {
   display: block;
   margin-bottom: 5px;
+}
+
+.post-actions {
+  margin-top: 20px;
+}
+
+.post-actions button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #343a8f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.post-actions button:hover {
+  background-color: #45a049;
 }
 </style>

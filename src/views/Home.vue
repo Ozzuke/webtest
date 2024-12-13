@@ -29,6 +29,15 @@
         <button @click="resetLikes" id="reset-likes">
           Reset Reactions
         </button>
+        <button @click="logout" id="logout-button">
+          Logout
+        </button>
+        <button @click="navigateToAddPost" id="add-post-button">
+          Add Post
+        </button>
+        <button @click="deleteAllPosts" id="delete-all-button">
+          Delete All
+        </button>
       </div>
     </main>
 
@@ -72,6 +81,16 @@ export default {
         this.error = e
         console.error('Error loading posts:', e)
       }
+    },
+    logout() {
+      localStorage.removeItem('token');
+      this.$router.push('/login');
+    },
+    navigateToAddPost() {
+      this.$router.push('/add-post');
+    },
+    deleteAllPosts() {
+      // Implement delete all posts functionality
     }
   },
   created() {
@@ -125,7 +144,7 @@ aside {
   font-style: italic;
 }
 
-#reset-likes {
+#reset-likes, #logout-button, #add-post-button, #delete-all-button {
   margin-top: 20px;
   padding: 10px;
   background-color: #f00;
